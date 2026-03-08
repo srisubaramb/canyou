@@ -34,3 +34,40 @@ employees.pop()
 console.log("Current Employees count due to an employee leaves" + employees.length)
 employees.shift()
 console.log("Current Employees count due to an employee promoted" + employees.length)
+// Phase - 2
+// ### 7. Locate a Specific Employee by using their ID
+const findEmployeeById = (id) => employees.find(employee => employee.id == id)
+console.log("Employee By ID")
+console.log(findEmployeeById(103))
+// ### 8. Skill Check
+let doWeHaveTheSKill = false;
+let skill = "Vue"
+for(let employee of employees) {
+	doWeHaveTheSKill = employee.skills.includes(skill)
+	if(doWeHaveTheSKill) return
+}
+console.log(`${skill} ${doWeHaveTheSKill}`)
+// ### 9. Middle Management Transfer 
+const deleteEmployeeById = (id) => {
+	const indexOfEmployeeToDelete = employees.findIndex(employee => employee.id == id)
+	if(indexOfEmployeeToDelete != -1) {
+		employees.splice(indexOfEmployeeToDelete,1)
+		console.log("Employee Deleted")
+		console.log("Updated List")
+		console.log(employees)
+	} else {
+		console.log("ID not found! Deletion failed, Try again correctly")
+	}
+}
+deleteEmployeeById(102)
+//### 10. Rank the Team
+employees.sort((a, b) => b.performanceScore - a.performanceScore)
+console.log("employee Leaderboard")
+console.log(employees)
+// ### 11.  Boss Level Challenge: Master Skill List 
+let skills = []
+employees.forEach(employee => skills.push(employee.skills))
+skills = skills.flat()
+skills = new Set(skills)
+console.log("Unique skills")
+console.log(skills)
