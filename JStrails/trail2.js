@@ -1,9 +1,9 @@
 let employees = [
-  { id: 101, name: "Alice", role: "Frontend Developer", department: "Engineering", performanceScore: 85, skills: ["React", "CSS", "JavaScript"] },
-  { id: 102, name: "Bob", role: "Backend Developer", department: "Engineering", performanceScore: 40, skills: ["Node.js", "MongoDB", "JavaScript"] },
-  { id: 103, name: "Charlie", role: "DevOps Engineer", department: "Infrastructure", performanceScore: 92, skills: ["AWS", "Docker", "Linux"] },
-  { id: 104, name: "Diana", role: "UI/UX Designer", department: "Design", performanceScore: 78, skills: ["Figma", "HTML", "CSS"] },
-  { id: 105, name: "Ethan", role: "Frontend Developer", department: "Engineering", performanceScore: 90, skills: ["Vue", "HTML", "JavaScript"] }
+{ id: 101, name: "Alice", role: "Frontend Developer", department: "Engineering", performanceScore: 85, skills: ["React", "CSS", "JavaScript"] },
+{ id: 102, name: "Bob", role: "Backend Developer", department: "Engineering", performanceScore: 40, skills: ["Node.js", "MongoDB", "JavaScript"] },
+{ id: 103, name: "Charlie", role: "DevOps Engineer", department: "Infrastructure", performanceScore: 92, skills: ["AWS", "Docker", "Linux"] },
+{ id: 104, name: "Diana", role: "UI/UX Designer", department: "Design", performanceScore: 78, skills: ["Figma", "HTML", "CSS"] },
+{ id: 105, name: "Ethan", role: "Frontend Developer", department: "Engineering", performanceScore: 90, skills: ["Vue", "HTML", "JavaScript"] }
 ];
 // ##  Phase 1: Core Operations (Use what you know!)
 // ### 1. Extract Employee Names
@@ -21,7 +21,7 @@ console.log("Skills covered")
 employees.forEach(employee => console.log(employee.skills))
 // ### 4. Calculate Total Bonus Payout
 console.log("Bonus payout")
-const totalPerformanceScore = employees.reduce((totalPerformanceScore, currentEmployee) => totalPerformanceScore += currentEmployee.performanceScore , 0)
+const totalPerformanceScore = employees.reduce((totalPerformanceScore, currentEmployee) => totalPerformanceScore + currentEmployee.performanceScore , 0)
 console.log(totalPerformanceScore * 10) //for every performance point 10$
 // ### 5. Check Team Eligibility
 const isATeamParty = employees.every(employee => employee.performanceScore >= 35)
@@ -40,13 +40,10 @@ const findEmployeeById = (id) => employees.find(employee => employee.id == id)
 console.log("Employee By ID")
 console.log(findEmployeeById(103))
 // ### 8. Skill Check
-let doWeHaveTheSKill = false;
+
 let skill = "Vue"
-for(let employee of employees) {
-	doWeHaveTheSKill = employee.skills.includes(skill)
-	if(doWeHaveTheSKill) return
-}
-console.log(`${skill} ${doWeHaveTheSKill}`)
+console.log(`${skill} is ${employees.some(employee => employee.skills.includes(skill))}`)
+
 // ### 9. Middle Management Transfer 
 const deleteEmployeeById = (id) => {
 	const indexOfEmployeeToDelete = employees.findIndex(employee => employee.id == id)
@@ -65,9 +62,5 @@ employees.sort((a, b) => b.performanceScore - a.performanceScore)
 console.log("employee Leaderboard")
 console.log(employees)
 // ### 11.  Boss Level Challenge: Master Skill List 
-let skills = []
-employees.forEach(employee => skills.push(employee.skills))
-skills = skills.flat()
-skills = new Set(skills)
-console.log("Unique skills")
-console.log(skills)
+const uniqueSkills = new Set(employees.flatMap(employee => employee.skills))
+console.log(`unique skills ${[...uniqueSkills]}`)
