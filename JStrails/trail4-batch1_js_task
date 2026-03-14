@@ -1,0 +1,84 @@
+// ### Task 1: Secure Data Initialization (IIFE & Scope)
+(function () {
+	const companyDepartment = {'IT' : [
+		{id:1, name: 'maahan', skills: ["React", "CSS", "JavaScript"], projects : [{name: 'Renovate',budget:230000}]},
+		{id:2, name: 'germi', skills: ["NEXT", "Node", "JavaScript"]},
+		{id:3, name: 'ferick', skills: ["C++", "Unreal", "Blueprint"], projects : [{name: 'Attictive',budget:7918391}]}
+	] ,
+	'HR' : [
+		{id:4, name: 'hannah', skills: ["collabration", "critical thinking", "communication"], projects : [{name: 'Attictive',budget:7918391}]},
+		{id:5, name: 'herman', skills: ["communication", "writing", "technical knowledge"], projects : [{name: 'Renovate',budget:230000}]}
+	] ,
+	'Sales' : [
+		{id:6, name: 'kaeya', skills: ["outbound", "digital marketing", "article writing"], projects : [{name: 'Attictive',budget:7918391}]},
+		{id:7, name: 'jim', skills: ["inbound", "seo", "communication"], projects : [{name: 'FEROG',budget:85398}]},
+	] }
+	extractTopPerformer(companyDepartment)
+	normalizeData(companyDepartment)
+})()
+// ### Task 2: Advanced Data Extraction (Nested Destructuring & Spread/Rest)
+function extractTopPerformer({...args},...metaData) {
+	const {IT : [,{name, skills : abilites, projects = '0'}]} = args
+	console.log(name, abilites, projects)
+}
+// ### Task 3: The "Context" Trap (The `this` keyword & Binding)
+const TaxCalculator = {
+	baseRate : 0.15,
+	calculate (amount) {
+		return this.baseRate * amount;
+	}
+}
+function processPayments(paymentsArray, callback) {
+	return paymentsArray.map(amount => callback.bind(TaxCalculator)(amount))
+}
+console.log(processPayments([100, 200, 300], TaxCalculator.calculate))
+
+// ### Task 4: Private State Management (Closures)
+function createProjectVault(initialFunds) {
+	let funds = initialFunds;
+	let transactions = [];
+	return {
+		addfund (amount) {
+			return amount > 0 && (funds += amount , transactions.push('+'  + amount),funds)
+			// if (amount > 0  ) {
+			// funds += amount;
+			// transactions.push('+' + amount);
+			// return funds
+			// }
+		},
+		deduct(amount) {
+			return funds >= amount ? (funds -= amount,transactions.push('-'+ amount),funds) : (console.log("Insufficient  funds can't deduct"),funds);
+			// if (funds < amount) {
+			// 	console.log("Insufficient funds can't deduct");
+			// } else {
+			// 	funds -= amount;
+			// 	transactions.push('-' + amount);
+			// 	return funds;
+			// }
+		},
+		getAuditHistory() { return transactions; }
+	}
+}
+let valut = createProjectVault(300)
+valut.addfund(80)
+valut.deduct(300)
+console.log(valut.getAuditHistory())
+
+// ### Task 5: The "Boss Level" Data Transformation (Heavy `reduce` & Array Chaining)
+function normalizeData(data) {
+	let result = Object.values(data)
+	result = result.flatMap(employee => employee).map(employee => {
+		const totalBudget = employee.projects?.reduce((totalAmount,currentObj) => totalAmount + (currentObj?.budget || 0) , 0) || 0
+		//remove project by using destructuring
+		const {projects, ...rest} = employee
+		return {
+			...rest,
+			totalBudget
+		} 
+	}).reduce((finalObj, currentObj) => {
+		finalObj[currentObj.id] = currentObj
+		return finalObj
+	},{})
+	console.log(result)
+}
+
