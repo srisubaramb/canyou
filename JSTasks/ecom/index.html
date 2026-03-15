@@ -13,7 +13,6 @@
 			<ul>
 				<li><a href=".">Home</a></li>
 				<li><a href="#products">Products</a></li>
-				<li><a href="#contact-us">Contact US</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -28,14 +27,25 @@
 			</div>
 		</div>
 	</section>
-	<section id="products">
-
-	</section>
-	<section id="contact-us">
-
-	</section>
+	<main id="products">
+		<h2>Products</h2>
+		<div class="products-display">
+			<!--Render the products from js-->
+			<div class="product-panel"></div>
+		<aside>
+			<h2>Filter orders</h2>
+			<form action="" id="filter-form">
+				<div class="form-categories"></div>
+				<label for="price-range" class="price-range">Price Range: </label>
+				<input type="range" name="price" id="price-range">
+				<button type="submit" class="btn btn-filter">Filter</button>
+			</form>
+		</aside>
+		</div>
+	</main>
 	<footer>
-
+		&copy; 2026 , Asfaro Footwears Inc
 	</footer>
+	<script type="module" src="script.js"></script>
 </body>
 </html>

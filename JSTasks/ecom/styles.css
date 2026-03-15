@@ -87,3 +87,77 @@ header nav ul li a:hover {
 	z-index: -1;
 	background: rgba(0, 0, 0, 0.4);
 }
+#products h2{
+	font-weight: 500;
+	text-align: center;
+	padding: 0.5rem 0rem;
+}
+.products-display {
+	display: grid;
+	grid-template-columns: 150px 3fr;
+	grid-template-areas: 'aside products';
+	padding: 0rem 1rem ;
+}
+aside {
+	grid-area: aside;
+}
+aside .price-range{
+	display: block;
+	border-top: 1px solid rgba(0, 0, 0, 0.545);
+	margin-top: 0.5rem;
+	
+}
+aside .btn-filter {
+	font-size: 1rem;
+	padding: 0.3rem 0.7rem;
+}
+aside .btn-filter:hover {
+	background-color: #0000009e;
+}
+.product-panel {
+	grid-area: products;
+	display: flex;
+	flex-wrap: wrap;
+}
+figure {
+	max-width: 250px;
+	border: 1px solid black;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	row-gap: 1rem;
+}
+figure img {
+	width: 100%;
+}
+figure .price{
+	font-size: 1.7rem;
+}
+figure p span {
+	font-size: 1.1rem;
+	margin-left: 2px;
+}
+figure p  span span {
+	text-decoration:line-through;
+}
+figcaption {
+	text-transform: capitalize;
+}
+.btn-add-to-cart {
+	display: block;
+	border-radius: 25px;
+	margin-top: 0.5rem;
+}
+.btn-add-to-cart:hover {
+	background-color: rgba(0, 0, 0, 0.881);
+}
+footer {
+	text-align: center;
+	opacity: 0.8;
+	padding: 1rem;
+	border-top: 1px solid black;
+}
+footer::after{
+	content: '.';
+}
