@@ -1,0 +1,40 @@
+const pokemon = () => {
+	const pikachu = fetch('https://pokeapi.co/api/v2/pokemon/pikachu')
+	const bulbasaur = fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
+	const charmander = fetch('https://pokeapi.co/api/v2/pokemon/charmander')
+	const pokemon = []
+	return Promise.all([pikachu,bulbasaur,charmander]).
+	then(responses => Promise.all(responses.map(response => response.json()))).then(dataArray => {
+		dataArray.forEach(data => pokemon.push(data))
+		return pokemon
+	})
+}
+// task 1
+// pokemon().then(data => console.table(data))
+const promiseRaceUrl = ['https://dog.ceo/api/breeds/image/random','https://api.adviceslip.com/advice','https://pokeapi.co/api/v2/pokemon/1']
+//task2
+// Promise.race(promiseRaceUrl.map(url => fetch(url))).then(response => console.log("winner url: " + response.url))
+
+const promiseCountryUrl = ['https://restcountries.com/v3.1/name/india', 'https://restcountries.com/v3.1/name/japan', 'https://restcountries.com/v3.1/name/brazil']
+//task 3
+// Promise.all(promiseCountryUrl.map(url => fetch(url))).then(responses => Promise.all(responses.map(responses => responses.json()))).then(dataArray => console.log(dataArray))
+// Promise.allSettled(promiseCountryUrl.map(url => fetch(url)))
+// .then(responses => responses.map(response => response.status == 'fulfilled' && console.log(response.value.url  + "working")))
+
+const promiseCapstoneUrl = ['https://dog.ceo/api/breeds/image/random','https://api.adviceslip.com/advice','https://jsonplaceholder.typicode.com/users/1','https://pokeapi.co/api/v2/pokemon/pikachu','https://pokeapi.co/api/v2/pokemon/ditto']
+// Promise.race(promiseCapstoneUrl.map(url => fetch(url))).then(response => response.json())
+// .then(data => {
+// 	const fourUrl = ['https://jsonplaceholder.typicode.com/users/1', 'https://pokeapi.co/api/v2/pokemon/pikachu','https://pokeapi.co/api/v2/pokemon/ditto']
+// 	Promise.all(fourUrl.map(url => fetch(url)))
+// 	.then(responses => Promise.all(responses.map(response => response.json()))).then(dataArray => console.log(data,dataArray))
+// })
+
+async function conversionAsync() {
+	const winnerResponse = await Promise.race(promiseCapstoneUrl.map(url => fetch(url)))
+	const winnerResponseData = await winnerResponse.json()
+	const fourUrl = ['https://jsonplaceholder.typicode.com/users/1', 'https://pokeapi.co/api/v2/pokemon/pikachu','https://pokeapi.co/api/v2/pokemon/ditto']
+	const fourURlRespone = await Promise.all(fourUrl.map(url => fetch(url)))
+	const fourURlResponeDataArray = await Promise.all(fourURlRespone.map(response => response.json()))
+	console.log(winnerResponseData , fourURlResponeDataArray)
+}
+conversionAsync()

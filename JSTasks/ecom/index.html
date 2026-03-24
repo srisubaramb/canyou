@@ -8,11 +8,12 @@
 </head>
 <body>
 	<header>
-		<h2 class="company-logo">AsfaroFoots</h2>
+		<h2 class="company-logo"><a href=".">AsfaroFoots</a></h2>
 		<nav>
 			<ul>
 				<li><a href=".">Home</a></li>
 				<li><a href="#products">Products</a></li>
+				<li><a href="./orders.html">Orders</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -22,8 +23,8 @@
 			<h2 class="hero-text-heading">' Discover your next favorite ,</h2>
 			<p class="hero-text-description">A place where your desires come alive with the products your feet wants</p>
 			<div class="hero-text-buttons">
-				<button type="button" class="btn btn1-hero">Today's Deals</button>
-				<button type="button" class="btn btn2-hero">Suprise Me</button>
+				<a  class="btn btn1-hero" href="#products">Today's Deals</a>
+				<a  class="btn btn2-hero" href="#products">Suprise Me</a>
 			</div>
 		</div>
 	</section>
@@ -36,7 +37,7 @@
 			<h2>Filter orders</h2>
 			<form action="" id="filter-form">
 				<div class="form-categories"></div>
-				<label for="price-range" class="price-range">Price Range: </label>
+				<label for="price-range" class="price-range">Price Range: <span class="price-range-value"></span></label>
 				<input type="range" name="price" id="price-range">
 				<button type="submit" class="btn btn-filter">Filter</button>
 			</form>

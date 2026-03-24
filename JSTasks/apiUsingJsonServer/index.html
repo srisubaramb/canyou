@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Api Form</title>
+</head>
+<body>
+	<form id="postform">
+		<label for="username">User Name: </label>
+		<input type="text" id="username" placeholder="Enter the username">
+		<label for="password">Password: </label>
+		<input type="password" id="password" placeholder="Enter the password" min="8" >
+		<input type="submit" value="submit">
+		<button type="button" onclick="updateUser()">Update</button>
+		<button type="button" id="delete-btn" onclick="deleteUser()">Delete</button>
+	</form>
+	<script>
+		document.getElementById('postform').addEventListener('submit', async function (e) {
+			e.preventDefault()
+			const username = document.querySelector('#username').value;
+			const password = document.querySelector('#password').value;
+			const responeServer = await fetch('http://localhost:3000/posts', {
+				method : "POST",
+				headers : {"content-type":"application/json"},
+				body : JSON.stringify({username,password})
+			})
+			const responeServerData = await responeServer.json()
+			console.log("response server data " , responeServerData)
+			alert('Your Data is in our hand 👻')
+			e.target.reset()
+		})
+		async function deleteUser() {
+			const username = document.querySelector('#username').value;
+			const password = document.querySelector('#password').value;
+			const searchString = `http://localhost:3000/posts?username=${username}`
+			console.log(searchString)
+			const responeServer = await fetch(searchString)
+			const responeServerData = await responeServer.json()
+			console.log("user found ", responeServerData)
+			if (responeServerData.length === 0) {
+				alert("User not found!");
+				return;
+			}
+			//since delete requires a specific id
+			const deleteUser = await fetch(`http://localhost:3000/posts/${responeServerData[0].id}`,{
+				method:'DELETE'
+			})
+			const responeServer1 = await fetch(searchString)
+			const responeServerData1 = await responeServer.json()
+			console.log("user found after deletion", responeServerData1)
+			alert("User deleted successfully!");
+		}
+		async function updateUser() {
+				const username = document.querySelector('#username').value;
+				const password = document.querySelector('#password').value;
+				// Find user by username
+				const searchString = `http://localhost:3000/posts?username=${username}`;
+				const responeServer = await fetch(searchString);
+				const responeServerData = await responeServer.json();
+				if (responeServerData.length === 0) {
+					alert("User not found!");
+					return;
+				}
+				const userId = responeServerData[0].id;
+				// Update user
+				const updateResponse = await fetch(`http://localhost:3000/posts/${userId}`, {
+					method: "PUT", 
+					headers: { "content-type": "application/json" },
+					body: JSON.stringify({ username, password })
+				});
+				const updatedUser = await updateResponse.json();
+				console.log("Updated user:", updatedUser);
+				alert("User updated successfully!");
+			}
+	</script>
+</body>
+</html>
