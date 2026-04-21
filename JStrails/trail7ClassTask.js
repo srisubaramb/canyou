@@ -86,7 +86,7 @@ class Transaction {
 		this.balance = balance
 		this.otherParty = otherParty
 		this.timestamp = new Date();        
-		this.transactionId = Math.random().toString(36).split(2, 9);
+		this.transactionId = Math.random().toString(36).slice(2, 9);
 	}
 }
 Transaction.prototype.getFormattedTransaction = function () {

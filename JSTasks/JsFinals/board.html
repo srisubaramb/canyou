@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wello</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="board.css">
+</head>
+
+<body>
+	<header class="header">
+		<h2 class="header-logo">W<span class="header-e">e</span>ll<span class="header-o">o</span></h2>
+		<nav class="header-nav">
+			<ul class="nav-ul">
+				<li class="nav-li"><a href=".">Home</a></li>
+				<li class="nav-li"><a href=".">About Us</a></li>
+				<li class="nav-li"><a href="./contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="header-buttons">
+			<a href="./profile.html" class="btn btn-profile">
+				<svg viewBox="-4.8 -4.8 57.60 57.60" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+					<!-- Black rounded background -->
+					<rect x="-4.8" y="-4.8" width="57.60" height="57.60" rx="28.8" fill="#000000" />
+
+					<!-- White icon -->
+					<g fill="#ffffff" stroke="none">
+						<path
+							d="M33.843,26.914L24,36l-9.843-9.086C8.674,30.421,5,36.749,5,44h38C43,36.749,39.326,30.421,33.843,26.914z" />
+						<path
+							d="M24,28c3.55,0,6.729-1.55,8.926-4C34.831,21.876,36,19.078,36,16c0-6.627-5.373-12-12-12S12,9.373,12,16c0,3.078,1.169,5.876,3.074,8C17.271,26.45,20.45,28,24,28z" />
+					</g>
+				</svg>
+			</a>
+		</div>
+	</header>
+	<main class="main">
+		<div class="board-header">
+			<div class="board-header-text">
+				<h2 class="board-header-heading">Tasks</h2>
+				<p class="sub-desc board-header-description">Keep track of your task all in one place.</p>
+			</div>
+			<div class="board-header-buttons">
+				<button type="button" class="btn-delete" title="Completed Board will be cleared">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<polyline points="3 6 5 6 21 6" />
+						<path d="M19 6l-1 14H6L5 6" />
+						<path d="M10 11v6" />
+						<path d="M14 11v6" />
+						<path d="M9 6V4h6v2" />
+					</svg>
+				</button>
+			</div>
+		</div>
+		<div class="board">
+			<div class="columns" id="to-do">
+				<div class="column-heading">
+					<h3 class="column-heading-text">To Do</h3>
+					<button type="button" class="btn-nobg add-card-btn">+</button>
+				</div>
+				<div class="cards-container"></div>
+
+			</div>
+			<div class="columns" id="in-progress">
+				<div class="column-heading">
+					<h3 class="column-heading-text">In Progress</h3>
+					<button type="button" class="btn-nobg add-card-btn">+</button>
+				</div>
+				<div class="cards-container"></div>
+
+			</div>
+			<div class="columns" id="completed">
+				<div class="column-heading">
+					<h3 class="column-heading-text">Completed</h3>
+					<button type="button" class="btn-nobg add-card-btn">+</button>
+				</div>
+				<div class="cards-container"></div>
+			</div>
+		</div>
+		<div id="overlay" class="overlay-basic"></div>
+		<form action="" id="add-card-form">
+			<div class="form-group">
+				<span class="close-icon">
+					<svg viewBox="0 0 24 24" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+						xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ff0000" stroke="#ff0000">
+						<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+						<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+						<g id="SVGRepo_iconCarrier">
+							<style type="text/css">
+								.st0 {
+									opacity: 0.2;
+									fill: none;
+									stroke: #000000;
+									stroke-width: 5.000000e-02;
+									stroke-miterlimit: 10;
+								}
+							</style>
+							<g id="grid_system"></g>
+							<g id="_icons">
+								<path
+									d="M5.3,18.7C5.5,18.9,5.7,19,6,19s0.5-0.1,0.7-0.3l5.3-5.3l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L12,10.6L6.7,5.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4 l5.3,5.3l-5.3,5.3C4.9,17.7,4.9,18.3,5.3,18.7z">
+								</path>
+							</g>
+						</g>
+					</svg>
+				</span>
+				<label for="task-heading" class="input-heading">Task heading</label>
+				<input type="text" placeholder="Heading" id="task-heading" class="input-field" required>
+				<label for="task-description" class="input-heading">Task Description</label>
+				<input type="text" placeholder="Description" id="task-description" class="input-field">
+				<label for="task-status" class="input-heading">Task Status</label>
+				<select name="task-status" id="task-status" class="input-field">
+					<option value="to-do">ToDo</option>
+					<option value="in-progress">In Progress</option>
+					<option value="completed">Completed</option>
+				</select>
+				<input type="submit" value="Add to board" class="btn add-to-board">
+			</div>
+		</form>
+	</main>
+	<script src="board.js"></script>
+</body>
+
+</html>

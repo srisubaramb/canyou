@@ -4,9 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Testing</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<input type="text" placeholder="Type keystores" id="key-count-input">
-	<script src="./trail6-advanced-js-challenge.js"></script>
+	<h1>Weather App</h1>
+	<form action="" id="weather-search">
+		<label for="city">City Name: </label>
+		<input type="text" name="city" id="city" placeholder="Enter the city" required>
+		<input type="submit" value="Search">
+	</form>
+	<div id="result"></div>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="trail9JsMiniProject.js"></script>
 </body>
 </html>

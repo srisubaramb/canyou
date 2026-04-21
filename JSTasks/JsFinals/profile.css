@@ -1,0 +1,44 @@
+main {
+	padding: 1rem;
+}
+.username {
+	text-transform: capitalize;
+	word-spacing: 3px;
+	letter-spacing: 1.5px;
+}
+.email{
+	font-size: 1.2rem;
+	letter-spacing: 2px;
+}
+.pills {
+	font-size: 0.9rem;
+	background-color: rgba(32, 182, 228, 0.814);
+	padding: 0.5rem 0.7rem;
+	border-radius: 5px;
+	text-transform: capitalize;
+}
+.pills::before {
+	content: '• ';
+	font-weight: 900;
+	font-size: 1rem;
+	text-align: center;
+}
+.pills::after {
+	content: '• ';
+	font-weight: 900;
+	font-size: 1rem;
+	margin-left: 0.5rem;
+}
+
+.total-task {
+	margin: 1rem;
+}
+.todo {
+	background-color: rgba(173, 216, 230, 0.571);
+}
+.in-progress {
+	background-color: orange;
+}
+.completed {
+	background-color: lightgreen;
+}

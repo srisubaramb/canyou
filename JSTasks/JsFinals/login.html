@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Wello - Login</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="auth-style.css">
+</head>
+<body>
+	<header class="header">
+		<h2 class="header-logo">W<span class="header-e">e</span>ll<span class="header-o">o</span></h2>
+		<nav class="header-nav">
+			<ul class="nav-ul">
+				<li class="nav-li"><a href=".">Home</a></li>
+				<li class="nav-li"><a href=".">Pricing</a></li>
+				<li class="nav-li"><a href=".">About Us</a></li>
+				<li class="nav-li"><a href="./contact.html">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="header-buttons">
+			<a href="." class="btn btn-nobg btn-faqs">FAQ's</a>
+		</div>
+	</header>
+	<main class="main">
+		<div class="image-section">
+			<img src="./asserts/bg-image-1.png" alt="signup-page-image" />
+			<div class="overlay-text">
+				<h2>Regain Your Vision</h2>
+				<p>Your Workspace to craft and elevate ideas</p>
+			</div>
+		</div>
+		<div class="form-section">
+			<p class="form-validation-msg">ooko</p>
+			<h2>Login</h2>
+			<form action="" id="user-login-form">
+				<input class="input-field" type="email" name="email" id="email" placeholder="Enter Your Email" required>
+				<input class="input-field" type="password" placeholder="Password" id="password" name="password" required>
+				<input type="submit" value="Login">
+			</form>
+			<p>Not have an account? <a href="./signup.html" class="auth-links">Sign Up</a></p>
+		</div>
+	</main>
+	<script src="auth.js"></script>
+</body>
+</html>

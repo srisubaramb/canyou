@@ -1,4 +1,10 @@
 {
-  "posts": [],
+  "posts": [
+    {
+      "username": "joyal",
+      "password": "admin123",
+      "id": "0fbe"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

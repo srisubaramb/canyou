@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register From</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			height: 100vh;
+		}
+	</style>
+</head>
+
+<body class="m-0 bg-info-subtle">
+	<div class="mx-auto form-holder">
+		<h2 class="text-decoration-underline text-uppercase">Registration Form</h2>
+		<form action="" id="register-form" class="ms-4">
+			<div class="name">
+				<label for="username">Name</label><br>
+				<input type="text" placeholder="Name" id="username" class="ms-2 px-3 py-2 rounded border-white">
+			</div>
+			<div class="email">
+				<label for="email">Email</label><br>
+				<input type="email" placeholder="Email" id="email" class="ms-2 px-3 py-2 rounded border-white">
+			</div>
+			<div class="password">
+				<label for="password">Password</label><br>
+				<input type="password" placeholder="Password" id="password" class="ms-2 px-3 py-2 rounded border-white">
+			</div>
+			<div class="confirm-password">
+				<label for="confirm-password">Confirm Password</label><br>
+				<input type="password" placeholder="Confirm password" id="confirm-password" class="ms-2 px-3 py-2 rounded border-white">
+			</div>
+			<input type="submit" value="Register" class="d-block  w-50  ms-5 mt-3 btn btn-primary">
+		</form>
+	</div>
+	<script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,18 +1,97 @@
-function usingFetchWiththen(url) {
-return fetch(url)
-.then(response => response.json())
-.then(data => data)
-.catch(error => console.log(error))
-}
-async function fetchData(url) {
-	let data = await fetch(url)
-	data = await data.json();
-	return data
-}
-const promise1 = fetch('https://jsonplaceholder.typicode.com/users/1')
-setTimeout(() => console.log('delay'),1000)
-const promise2 = fetch('https://jsonplaceholder.typicode.com/users/2')
-const promise3 = fetch('https://jsonplaceholder.typicode.com/users/3')
+// Inheritance & Advanced OOP
 
-Promise.all([promise1,promise2,promise3])
-.then(response => response.forEach(response => response.json().then(data => console.log(data))))
+// - Class inheritance (extends keyword)
+
+// - Super keyword
+
+// - Static methods
+
+// - Private fields (#)
+
+// - Method overriding
+
+// - Practice: Class hierarchies
+
+ 
+
+class Driver{
+
+    #earings = 0
+
+    constructor(name,car){
+
+      this.name=name;
+
+      this.car=car;
+
+    }
+
+    startDrive(){
+
+       console.log(`The Driver ${this.name} started the ride`)
+
+    }
+
+    endDrive(fair){
+
+      this.#earings+=fair
+
+      console.log(`The drive is completed and amount payed ${this.#earings} and fair is ${fair}`)
+
+    }
+
+    // static method 
+
+    static companyPolicy(){
+
+      console.log(`The product is returned or exchanged within 42 hrs`)
+
+    }
+
+}
+
+//inheritance -extends 
+
+class PremiumDriver extends Driver{
+
+    constructor(name,car,serviceType,fair){
+
+        super(name,car)
+
+        this.serviceType=serviceType
+		this.fair = fair
+    }
+
+    //method overriding
+
+    endDrive(){
+
+      console.log(`The drive is ended with ${this.serviceType} and driven by ${this.name}`)
+
+       super.endDrive(this.fair)
+
+    }
+
+    DrivingJourney(){
+
+       console.log('The journey is ended')
+
+    }
+
+}
+
+const obj1=new PremiumDriver('Ashok','Audi','Premium Type', 900)
+
+// console.log(obj1.#earings)
+
+obj1.startDrive()
+
+obj1.endDrive(4000)
+
+Driver.companyPolicy()
+
+obj1.DrivingJourney()
+
+
+
+
