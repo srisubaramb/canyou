@@ -1,0 +1,49 @@
+nav {
+ background-color: aqua;
+ padding: 0.1rem;
+}
+ul {
+	display: flex;
+	gap: 1rem;
+}
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+div.form-container {
+	display: flex;
+	justify-content: center;
+	margin: 1rem;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	gap: 5px;
+}
+form input {
+	display: block;
+	padding: 5px;
+	border: 0.5px solid black;
+	font-size: 1rem;
+}
+input[type='submit'] {
+	background-color: rgb(0, 0, 0);
+	color: white;
+	font-size: 0.9rem;
+}
+.user {
+	border: 1px solid black;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+}
+.user button {
+	margin-right: 5px;
+	background-color: bisque;
+	border: none;
+	padding: 5px;
+	border-radius: 5px;
+}
