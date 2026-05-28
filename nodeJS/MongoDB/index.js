@@ -27,8 +27,9 @@ app.get('/add-user' ,async (req, res) => {
 	const ack = await collection.insertOne({name, age})
 	res.send(ack)
 })
-app.get('show-users' , async (req, res) => {
-	const users = await collection.find()
+app.get('/show-users' , async (req, res) => {
+
+	const users = await collection.find().toArray()
 	res.send(users)
 })
 igniteDb()
