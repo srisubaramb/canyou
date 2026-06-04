@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { CartContext } from "./App";
+
 function Nav() {
+	const context = useContext(CartContext)
     return (
         <>
            <nav className="navbar navbar-expand-lg ">
@@ -14,6 +18,10 @@ function Nav() {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="/products">Products</a>
+        </li>
+		<li className="nav-item">
+          <a className="nav-link" href="/cart">Your Cart
+		  <sup style={{background : 'green', padding : '2px', marginLeft:'5px', borderRadius:'5px', textAlign:'center',color:'white', fontSize: '0.9rem', fontWeight: '500'}}> {context.cart.length}</sup></a>
         </li>
 		<li className="nav-item">
           <a className="nav-link" href="#">About Us</a>

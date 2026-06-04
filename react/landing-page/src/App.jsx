@@ -2,19 +2,27 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Hero } from './Hero';
 import Nav from "./Nav";
 import Products from './Products';
-import { useState } from 'react';
+import { useState, createContext} from 'react';
+import Cart from "./Cart";
+import { useEffect } from 'react';
+export const CartContext = createContext();
 let darkTheme = false;
+
 function App() {
+	const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || [])
 	return (
 		<>
-		<BrowserRouter>
-			<Nav />
-			<Routes>
-				<Route path='/' element={<Hero/>}/>
-				<Route path='/products' element={<Products/>}/>
-			</Routes>
-			<ThemeToggleButton />
-		</BrowserRouter>	
+		<CartContext.Provider value={{cart, setCart}}>
+			<BrowserRouter>
+				<Nav/>
+				<Routes>
+					<Route path='/' element={<Hero/>}/>
+					<Route path='/products' element={<Products/>}/>
+					<Route path='/cart' element={<Cart/>}/>
+				</Routes>
+				<ThemeToggleButton />
+			</BrowserRouter>
+		</CartContext.Provider>	
 		</>
 	)
 }

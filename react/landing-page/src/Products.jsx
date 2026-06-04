@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { CartContext } from "./App";
+
 const products = [
   {
 	id : 1,
@@ -17,7 +20,19 @@ const products = [
   },
   
 ];
-function Products(){
+
+function Products(props){
+	const {cart, setCart} = useContext(CartContext)
+
+	function addToCart(id) {
+		const productFound = products.filter(product => product.id == id)[0]
+		setCart(cart => {
+			const updatedCart = [...cart, productFound]
+			localStorage.setItem('cart', JSON.stringify(updatedCart))
+			return updatedCart;
+		})
+	}
+
 	return(
 		<>
 		<div className="m-5 d-flex gap-3">
@@ -28,7 +43,7 @@ function Products(){
 					{product.productName}
 					<p className="price">${product.productPrice}<span>M.R.P<span>${product.productOriginalPrice}</span></span></p>
 					<p className="category">{product.ProductCategory}</p>
-					<button type="button" className="btn btn-add-to-cart">Add To cart</button>
+					<button type="button" className="btn btn-add-to-cart" onClick={() => addToCart(product.id)}>Add To cart</button>
 				</figcaption>
 			</figure>
 			)
