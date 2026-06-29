@@ -1,2 +1,3 @@
 node_*
 package-lock*
+express/BackendCRUD/uploads/*
