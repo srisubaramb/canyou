@@ -1,0 +1,21 @@
+Student_ID,Name,Age,Gender,City,Department,Semester,Python_Marks,Pandas_Marks,Attendance,Project_Status,Fee_Paid,Joining_Date
+101,Arun,20,Male,Chennai,CSE,3,78,82,91,Completed,True,2025-06-10
+102,Divya,21,Female,Madurai,IT,4,88,91,95,Completed,True,2025-06-12
+103,Karthik,19,Male,Coimbatore,CSE,2,67,74,83,Pending,False,2025-07-01
+104,Meena,22,Female,Chennai,ECE,5,92,89,97,Completed,True,2024-06-15
+105,Rahul,20,Male,Salem,IT,3,55,61,76,Pending,False,2025-06-18
+106,Priya,21,Female,Trichy,CSE,4,84,87,92,Completed,True,2024-07-02
+107,Surya,23,Male,Chennai,EEE,6,73,69,88,In Progress,True,2023-06-20
+108,Nisha,20,Female,Madurai,IT,3,90,94,96,Completed,True,2025-06-25
+109,Vijay,22,Male,Coimbatore,ECE,5,64,70,81,Pending,False,2024-06-05
+110,Anitha,19,Female,Salem,CSE,2,79,85,89,In Progress,True,2025-07-04
+111,Sanjay,21,Male,Trichy,IT,4,86,80,93,Completed,True,2024-07-10
+112,Keerthi,20,Female,Chennai,ECE,3,71,,84,Pending,False,2025-06-08
+113,Manoj,23,Male,Madurai,EEE,6,58,63,72,In Progress,True,2023-06-11
+114,Aishwarya,22,Female,Coimbatore,CSE,5,95,97,98,Completed,True,2024-06-22
+115,Bala,19,Male,Salem,IT,2,,68,79,Pending,False,2025-07-08
+116,Harini,21,Female,Trichy,ECE,4,82,86,,Completed,True,2024-07-15
+117,Gokul,20,Male,Chennai,CSE,3,69,72,85,In Progress,True,2025-06-28
+118,Lavanya,23,Female,Madurai,IT,6,91,93,97,Completed,True,2023-06-18
+119,Dinesh,22,Male,Coimbatore,EEE,5,62,66,80,Pending,False,2024-06-30
+120,Shalini,20,Female,Salem,CSE,3,87,90,94,Completed,True,2025-06-14
